@@ -12,4 +12,4 @@ jobs:
       - run:
           name: Validate DBC
           command: |
-            /home/circleci/.local/bin/cantools dump as_pacmod_v2*.dbc
+            /home/circleci/.local/bin/cantools dump as_pacmod*.dbc
