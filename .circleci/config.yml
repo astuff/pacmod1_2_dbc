@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  dbc_validation:
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - checkout
+      - run:
+          name: Set Up Container
+          command: |
+            pip install --user cantools
+      - run:
+          name: Validate DBC
+          command: |
+            /home/circleci/.local/bin/cantools dump as_pacmod_v2*.dbc
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - dbc_validation
